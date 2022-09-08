@@ -1,8 +1,10 @@
 import "./KaotoEditor.css";
-import { MASLoading } from "@kaoto/kaoto-ui/src/layout/MASLoading/MASLoading";
-import { AlertProvider } from "@kaoto/kaoto-ui/src/layout/MASAlerts/MASAlerts";
-import { AppLayout } from "@kaoto/kaoto-ui/src/layout/AppLayout";
-import { AppRoutes } from "@kaoto/kaoto-ui/src/routes";
+// import { MASLoading } from "@kaoto/layout/MASLoading/MASLoading";
+// import { AlertProvider } from "@kaoto/kaoto-ui/src/layout/MASAlerts/MASAlerts";
+// import { AppLayout } from "@kaoto/kaoto-ui/src/layout/AppLayout";
+// import { AppRoutes } from "@kaoto/kaoto-ui/src/routes";
+
+import Kaoto from 'kaoto/dist/kaoto-cjs';
 import { Suspense } from "react";
 import { HashRouter as Router } from "react-router-dom";
 
@@ -119,15 +121,7 @@ export class KaotoEditor extends React.Component<Props, State> {
         updateContent={(content: string) => this.updateContent(content)}
         setUndoRedoCallbacks={(undoCallback, redoCallback) => this.setUndoRedoCallbacks(undoCallback, redoCallback)}
       >
-        <AlertProvider>
-          <Router>
-            <Suspense fallback={<MASLoading />}>
-              <AppLayout>
-                <AppRoutes />
-              </AppLayout>
-            </Suspense>
-          </Router>
-        </AlertProvider>
+        <Kaoto/>
       </KogitoEditorIntegrationProvider>
     );
   }

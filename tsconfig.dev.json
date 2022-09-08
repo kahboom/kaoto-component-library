@@ -1,6 +1,6 @@
 {
-	"include": ["src"],
-	"exclude": ["dist", "node_modules", "**/*.test.ts*"],
+	"include": ["src", "node_modules"],
+	"exclude": ["dist", "**/*.test.ts*"],
 	"compilerOptions": {
 	  "outDir": "dist",
 	  "lib": ["es6", "dom", "es2018.promise", "es2019", "esnext"],
@@ -16,5 +16,8 @@
 	  "downlevelIteration": true,
 	  "skipLibCheck": true,
 	  "jsx": "react-jsx"
+	},
+	"paths": {
+		"*": ["*", "types/*"]
 	}
 }
